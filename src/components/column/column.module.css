@@ -1,0 +1,7 @@
+.column {
+    width: 300px;
+    margin: 0 10px 0 0;
+    padding: 6px;
+    background-color: var(--third-color);
+    list-style: none;
+}

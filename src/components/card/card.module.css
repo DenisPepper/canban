@@ -1,0 +1,6 @@
+.card {
+    width: 100%;
+    margin-bottom: 6px;
+    padding: 4px;
+    background-color: var(--fourth-color);
+}

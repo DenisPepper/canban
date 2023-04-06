@@ -1,0 +1,11 @@
+.field {
+    width: 100%;
+    min-height: 100vh;
+
+    padding: 10px;
+
+    display: flex;
+    align-items: flex-start;
+
+    background-color: var(--first-color);
+}

@@ -1,13 +1,11 @@
 import React from "react";
-
-const appStyles: React.CSSProperties = {
-    backgroundColor: "red",
-};
+import {Field} from "../field/field";
 
 export const App = () => {
     return (
-        <div style={appStyles}>
-            kanban study project
+        <div>
+            <h1 className={'visually-hidden'}>Доска задач</h1>
+            <Field />
         </div>
     );
 }

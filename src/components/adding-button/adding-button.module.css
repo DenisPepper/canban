@@ -1,0 +1,25 @@
+.button {
+    border: 1px solid var(--second-color);
+    border-radius: 1px;
+    padding: 4px;
+    text-align: center;
+    color: var(--second-color);
+    background-color:rgba(0, 0, 0, 1%);
+}
+
+.button:focus-visible {
+    color: var(--fourth-color);
+    background-color: var(--second-color);
+
+    outline-offset: 2px;
+    outline: 4px solid var(--fifth-color);
+}
+
+.button:hover {
+    color: var(--fourth-color);
+    background-color: var(--second-color);
+}
+
+.button:active {
+    font-weight: bold;
+}
