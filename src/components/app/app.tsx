@@ -1,9 +1,13 @@
-function App() {
-  return (
-    <div>
-      app
-    </div>
-  );
-}
+import React from "react";
 
-export default App;
+const appStyles: React.CSSProperties = {
+    backgroundColor: "red",
+};
+
+export const App = () => {
+    return (
+        <div style={appStyles}>
+            kanban study project
+        </div>
+    );
+}
