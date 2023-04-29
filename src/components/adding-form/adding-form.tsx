@@ -22,17 +22,31 @@ export const AddingForm = (props: AddingFormProps) => {
       setIsAddingButtonHide((prevState) => !prevState);
     };
 
-    const handleSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
-        evt.preventDefault();
-        const value = new FormData(evt.currentTarget).get(INPUT_NAME);
+    const validateFormData = (data: FormData) => {
+        const value = data.get(INPUT_NAME);
         if (typeof value === 'string') {
             handleFormSubmit(value);
             setIsAddingButtonHide((prevState) => !prevState);
         }
     };
 
+    const handleSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
+        evt.preventDefault();
+        validateFormData(new FormData(evt.currentTarget));
+    };
+
+    const handleKeyDown = (evt: React.KeyboardEvent<HTMLFormElement>) => {
+        if (evt.key === 'Enter') {
+            validateFormData(new FormData(evt.currentTarget));
+        }
+    };
+
     return (
-        <form onSubmit={handleSubmit} autoComplete={'off'}>
+        <form
+            onSubmit={handleSubmit}
+            onKeyDown={handleKeyDown}
+            autoComplete={'off'}
+        >
             { isAddingButtonHide ?
                 <AddingField
                     name={INPUT_NAME}
