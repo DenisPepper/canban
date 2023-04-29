@@ -1,13 +1,15 @@
 import css from './adding-field.module.css';
+import {useFocus} from "../../hooks/use-focus/use-focus";
 
 interface AddingFieldProps {
     name: string;
+
     handleCrossButtonClick(): void;
 }
 
 export const AddingField = (props: AddingFieldProps) => {
     const {name, handleCrossButtonClick} = props;
-
+    const ref = useFocus();
     return (
         <fieldset>
             <input
@@ -17,6 +19,7 @@ export const AddingField = (props: AddingFieldProps) => {
                 name={name}
                 placeholder='write here ...'
                 required
+                ref={ref}
             />
             <button type='submit'>
                 +
