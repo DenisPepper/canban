@@ -1,7 +1,9 @@
-import {createContext, ReactNode, useContext} from "react";
-import {AppState, Column, Task} from "./app-state-reducer";
+import {createContext, ReactNode, useContext, Dispatch} from "react";
+import {AppState, appStateReducer, Column, Task} from "./app-state-reducer";
+import {Action} from "./actions";
+import { useImmerReducer } from "use-immer";
 
-const appData: AppState = {
+const initialState: AppState = {
     columns: [
         {id: '0', tasks: [{id: 'c0', text: 'task one'}], title: 'To do'},
         {id: '1', tasks: [{id: 'c1', text: 'task two'}], title: 'To do'},
@@ -12,18 +14,20 @@ const appData: AppState = {
 interface AppStateContextProps {
     columns: Column[];
     getTasksByColumnId(id: string): Task[];
+    dispatch: Dispatch<Action>;
 }
 
 const AppStateContext = createContext<AppStateContextProps>({} as AppStateContextProps);
 
 export const AppStateProvider = (props: {children: ReactNode}) => {
     const {children} = props;
-    const {columns} = appData;
+    const [state, dispatch] = useImmerReducer(appStateReducer, initialState);
+    const {columns} = state;
 
     const getTasksByColumnId = (id: string) => columns.find((column) => column.id === id)?.tasks || [];
 
     return (
-      <AppStateContext.Provider value={{columns, getTasksByColumnId}}>{children}</AppStateContext.Provider>
+      <AppStateContext.Provider value={{columns, dispatch, getTasksByColumnId}}>{children}</AppStateContext.Provider>
     );
 }
 

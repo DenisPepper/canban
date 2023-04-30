@@ -28,7 +28,6 @@ export const appStateReducer = (state: AppState, action: Action): AppState | voi
             addList(state, {id: nanoid(), title: action.payload, tasks: [] });
             break;
 
-
         case 'ADD_TASK':
             const {text, listId} = action.payload;
             const index = findIndexByItemId(state.columns, listId);
