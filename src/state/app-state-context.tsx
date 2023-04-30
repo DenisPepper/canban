@@ -1,19 +1,5 @@
 import {createContext, ReactNode, useContext} from "react";
-
-interface Task {
-    id: string;
-    text: string;
-}
-
-interface Column {
-    id: string;
-    title: string;
-    tasks: Task[];
-}
-
-export interface AppState {
-    columns: Column[];
-}
+import {AppState, Column, Task} from "./app-state-reducer";
 
 const appData: AppState = {
     columns: [

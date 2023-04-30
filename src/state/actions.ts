@@ -1,14 +1,14 @@
-interface AddList {
+export interface AddList {
     type: 'ADD_LIST';
     payload: string;
 }
 
-interface AddTaskPayload {
+export interface AddTaskPayload {
     text: string;
     listId: string;
 }
 
-interface AddTask {
+export interface AddTask {
     type: 'ADD_TASK';
     payload: AddTaskPayload;
 }
