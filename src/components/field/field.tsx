@@ -2,12 +2,13 @@ import css from './field.module.css';
 import {Column} from "../column/column";
 import {AddingForm, ParentName as Name} from "../adding-form/adding-form";
 import {useAppState} from "../../state/app-state-context";
+import {addList} from "../../state/actions";
 
 export const Field = () => {
-    const {columns} = useAppState();
+    const {columns, dispatch} = useAppState();
 
     const handleFormSubmit = (text: string) => {
-        console.log(text);
+        dispatch(addList(text));
     }
 
     return (

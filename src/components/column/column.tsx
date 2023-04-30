@@ -3,6 +3,7 @@ import {ColumnTitle} from "../column-title/column-title";
 import {Card} from "../card/card";
 import {AddingForm, ParentName as Name} from "../adding-form/adding-form";
 import {useAppState} from "../../state/app-state-context";
+import {addTask} from "../../state/actions";
 
 interface ColumnProps {
     title: string;
@@ -11,11 +12,11 @@ interface ColumnProps {
 
 export const Column = (props: ColumnProps) => {
     const {title, id} = props;
-    const {getTasksByColumnId} = useAppState();
+    const {getTasksByColumnId, dispatch} = useAppState();
     const tasks = getTasksByColumnId(id);
 
     const handleFormSubmit = (text: string) => {
-        console.log(text);
+        dispatch(addTask({listId: id, text}));
     }
 
     return (
