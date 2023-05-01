@@ -1,6 +1,7 @@
 import {Action} from "./actions";
 import {nanoid} from 'nanoid';
 import {findIndexByItemId, moveItem} from "../utils/array-utils";
+import {DragItem} from "../components/drag-item/drag-item";
 
 export interface Task {
     id: string;
@@ -14,6 +15,7 @@ export interface Column {
 }
 
 export interface AppState {
+    draggedItem: DragItem | null;
     columns: Column[];
 }
 
@@ -39,6 +41,10 @@ export const appStateReducer = (state: AppState, action: Action): AppState | voi
             const draggedIndex = findIndexByItemId(state.columns, draggedId);
             const hoverIndex = findIndexByItemId(state.columns, hoverId);
             state.columns = moveItem(state.columns, draggedIndex, hoverIndex);
+            break;
+
+        case 'SET_DRAGGED_ITEM':
+            state.draggedItem = action.payload;
             break;
 
         default: break;
