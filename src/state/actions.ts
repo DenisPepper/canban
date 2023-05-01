@@ -13,13 +13,27 @@ export interface AddTask {
     payload: AddTaskPayload;
 }
 
+export interface MoveListPayload {
+    draggedId: string;
+    hoverId: string;
+}
+
+export interface MoveList {
+    type: 'MOVE_LIST';
+    payload: MoveListPayload;
+}
+
 export type Action =
     |AddList
-    |AddTask;
+    |AddTask
+    |MoveList;
 
 export const addTask = (args: AddTaskPayload): Action => {
-    const {text, listId} = args;
-    return {type: "ADD_TASK", payload: {text, listId}};
+    return {type: "ADD_TASK", payload: args};
 };
 
 export const addList = (title: string): Action => ({type: "ADD_LIST", payload: title});
+
+export const moveList = (args: MoveListPayload): Action => {
+    return {type: "MOVE_LIST", payload: args}
+};
