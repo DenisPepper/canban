@@ -36,8 +36,12 @@ export const AddingForm = (props: AddingFormProps) => {
     };
 
     const handleKeyDown = (evt: React.KeyboardEvent<HTMLFormElement>) => {
+        evt.stopPropagation();
         if (evt.key === 'Enter') {
             validateFormData(new FormData(evt.currentTarget));
+        }
+        if (evt.key === 'Escape') {
+            toggleAddingButton();
         }
     };
 
