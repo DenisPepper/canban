@@ -13,6 +13,7 @@ export const Field = () => {
 
     return (
         <main className={css.field}>
+            <div className={css.columns}>
             {columns.map((column) =>
                 <Column
                     key={column.id}
@@ -20,7 +21,10 @@ export const Field = () => {
                     title={column.title}
                 />)
             }
-            <AddingForm parentName={Name.Column} handleFormSubmit={handleFormSubmit}/>
+            </div>
+            <div className={css.form}>
+                <AddingForm parentName={Name.Column} handleFormSubmit={handleFormSubmit}/>
+            </div>
         </main>
     );
 }

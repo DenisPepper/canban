@@ -34,6 +34,11 @@ html,
 body,
 #root {
   height: 100%;
+
+}
+
+#root {
+  min-width: 320px;
 }
 
 .visually-hidden {

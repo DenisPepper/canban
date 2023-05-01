@@ -4,8 +4,24 @@
 
     padding: 10px;
 
-    display: flex;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns:4fr 1fr;
+    grid-template-areas: 'columns sidebar';
 
     background-color: var(--first-color);
+}
+
+.columns {
+    padding: 20px;
+    grid-area: columns;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    align-content: flex-start;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.form {
+    grid-area: sidebar;
 }

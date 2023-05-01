@@ -5,9 +5,9 @@ import { useImmerReducer } from "use-immer";
 
 const initialState: AppState = {
     columns: [
-        {id: '0', tasks: [{id: 'c0', text: 'task one'}], title: 'To do'},
-        {id: '1', tasks: [{id: 'c1', text: 'task two'}], title: 'To do'},
-        {id: '2', tasks: [{id: 'c2', text: 'task three'}], title: 'To do'},
+        {id: '0', tasks: [{id: 'c0', text: 'to do task one'}], title: 'New tasks'},
+        {id: '1', tasks: [{id: 'c1', text: 'finish task two'}], title: 'In process'},
+        {id: '2', tasks: [{id: 'c2', text: 'task three'}], title: 'Completed'},
     ],
 };
 
